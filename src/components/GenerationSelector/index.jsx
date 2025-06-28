@@ -9,7 +9,7 @@ export default function GenerationSelector({ value, onChange }) {
   if (error) return <p>Error al cargar generaciones: {error.message}</p>;
 
   return (
-    <Select className='max-w-xs' label='Seleccionar generación' value={value} onChange={onChange}>
+    <Select className='max-w-xs' label='Seleccionar generación' selectedKeys={value ? [value] : []} onChange={onChange}>
       {data.generations.map((gen) => (
         <SelectItem key={gen.name}>{gen?.name?.replace('generation-', 'Generación ').toUpperCase()}</SelectItem>
       ))}
