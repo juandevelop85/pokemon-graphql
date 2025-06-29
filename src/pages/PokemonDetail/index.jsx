@@ -4,5 +4,5 @@ import PokemonDetailData from '../../components/PokemonDetailData';
 export default function PokemonDetail() {
   const { pokemon_id } = useParams();
 
-  return <div>{pokemon_id && <PokemonDetailData pokemonId={pokemon_id} />}</div>;
+  return <div>{pokemon_id && <PokemonDetailData pokemonId={parseInt(pokemon_id)} />}</div>;
 }

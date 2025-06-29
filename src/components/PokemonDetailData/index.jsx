@@ -3,10 +3,10 @@ import { useQuery } from '@apollo/client';
 import { typeColorMap } from '../../helpers/colorTypes';
 import { capitalize } from '../../helpers/common-functions';
 import EvolutionChain from '../EvolutionChain';
-import { Image } from '@heroui/react';
+import { Image, Spinner } from '@heroui/react';
 
 export default function PokemonDetailData({ pokemonId }) {
-  const { data } = useQuery(GET_POKEMON_INFO, {
+  const { data, loading } = useQuery(GET_POKEMON_INFO, {
     variables: { pokemonId },
     skip: !pokemonId,
     fetchPolicy: 'no-cache',
@@ -21,25 +21,32 @@ export default function PokemonDetailData({ pokemonId }) {
   const getStatColor = (value) => {
     switch (true) {
       case value >= 200:
-        return 'bg-red-700';
+        return 'bg-green-700';
       case value >= 150:
-        return 'bg-red-500';
+        return 'bg-green-500';
       case value >= 120:
-        return 'bg-orange-400';
+        return 'bg-lime-400';
       case value >= 90:
         return 'bg-yellow-400';
       case value >= 60:
-        return 'bg-green-400';
+        return 'bg-orange-400';
       case value >= 30:
-        return 'bg-green-600';
+        return 'bg-red-500';
       default:
-        return 'bg-gray-500';
+        return 'bg-red-700';
     }
   };
 
+  if (loading) {
+    return (
+      <div className='flex justify-center mt-8 w-full items-center'>
+        <Spinner classNames={{ label: 'text-foreground mt-4' }} size='lg' label='Consultando...' variant='wave' />
+      </div>
+    );
+  }
+
   return (
-    <div className='bg-white shadow-md rounded-lg p-6 max-w-4xl mx-auto'>
-      {/* Imagen, Medidas y Tipo en una fila horizontal */}
+    <div className='bg-white rounded-lg p-6 max-w-4xl mx-auto'>
       <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
         <div className='flex justify-center md:justify-start flex-shrink-0'>
           <Image isBlurred alt={pokemonInfo?.name} className='w-40 h-40' src={imagen} />
@@ -51,25 +58,22 @@ export default function PokemonDetailData({ pokemonId }) {
             <p className='text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full'>Peso: {(pokemonInfo?.weight * 0.1).toFixed(1)} kg</p>
           </div>
 
-          <div>
-            <h4 className='text-sm font-semibold text-gray-700 mb-2'>Tipo</h4>
-            <div className='flex flex-wrap gap-2'>
-              {types.map((t) => {
-                const typeNameSlug = t.type.name;
-                const typeName = t?.type?.typenames?.[0]?.name;
-                const typeClass = typeColorMap[typeNameSlug] || 'bg-gray-300 text-black';
-                return (
-                  <span key={typeNameSlug} className={`px-3 py-1 text-xs rounded-full ${typeClass}`}>
-                    {capitalize(typeName)}
-                  </span>
-                );
-              })}
-            </div>
+          <h4 className='text-sm font-semibold text-gray-700 mb-2'>Tipo</h4>
+          <div className='flex flex-wrap gap-2'>
+            {types.map((t) => {
+              const typeNameSlug = t.type.name;
+              const typeName = t?.type?.typenames?.[0]?.name;
+              const typeClass = typeColorMap[typeNameSlug] || 'bg-gray-300 text-black';
+              return (
+                <span key={typeNameSlug} className={`px-3 py-1 text-xs rounded-full ${typeClass}`}>
+                  {capitalize(typeName)}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Habilidades */}
       <div className='mt-4'>
         <h4 className='text-sm font-semibold text-gray-700 mb-2'>Habilidades</h4>
         <ul className='list-disc list-inside text-sm text-gray-600'>
@@ -79,7 +83,6 @@ export default function PokemonDetailData({ pokemonId }) {
         </ul>
       </div>
 
-      {/* Puntos base */}
       <div className='mt-4'>
         <h4 className='text-sm font-semibold text-gray-700 mb-2'>Puntos base</h4>
         <div className='text-sm text-gray-600 space-y-1'>
@@ -97,7 +100,6 @@ export default function PokemonDetailData({ pokemonId }) {
         </div>
       </div>
 
-      {/* Cadena evolutiva */}
       <div className='mt-6'>
         <EvolutionChain pokemonId={pokemonId} />
       </div>

@@ -1,12 +1,39 @@
-import { Route, Routes } from "react-router";
-import PokeDex from "../pages/PokeDex";
-import PokemonDetail from "../pages/PokemonDetail";
+import { Route, Routes } from 'react-router';
+import PokeDex from '../pages/PokeDex';
+import PokemonDetail from '../pages/PokemonDetail';
+import PrincipalLayout from '../components/Layout/PrincipalLayout';
 
 const Router = () => {
+  const routes = [
+    {
+      page: PokeDex,
+      exact: true,
+      path: '/',
+      layout: PrincipalLayout,
+    },
+    {
+      page: PokemonDetail,
+      exact: true,
+      path: '/detail/:pokemon_id',
+      layout: PrincipalLayout,
+    },
+  ];
+
   return (
     <Routes>
-      <Route path='/' element={<PokeDex />} />
-      <Route exact path='/detail/:pokemon_id' element={<PokemonDetail />} />
+      {routes.map(({ path, exact = true, page: Page, layout: Layout, ...res }) => (
+        <Route
+          key={path}
+          path={path}
+          exact={exact}
+          {...res}
+          element={
+            <Layout>
+              <Page />
+            </Layout>
+          }
+        />
+      ))}
     </Routes>
   );
 };
