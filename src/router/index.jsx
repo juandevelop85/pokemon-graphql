@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 import PokeDex from '../pages/PokeDex';
 import PokemonDetail from '../pages/PokemonDetail';
 import PrincipalLayout from '../components/Layout/PrincipalLayout';
+import NotFound from '../pages/NotFound';
 
 const Router = () => {
   const routes = [
@@ -34,6 +35,7 @@ const Router = () => {
           }
         />
       ))}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
