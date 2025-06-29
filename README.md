@@ -1,12 +1,63 @@
-# React + Vite
+Una Pokédex hecha en React que consume la API de [GraphQL PokeAPI](https://graphql.pokeapi.co/). Permite buscar Pokémon, ver sus estadísticas, tipos, habilidades, y cadena evolutiva.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Tecnologías usadas
 
-Currently, two official plugins are available:
+- [React 19](https://react.dev/)
+- [React Router v7](https://reactrouter.com/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [GraphQL](https://graphql.org/)
+- [Tailwind CSS v3](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) (para animaciones)
+- [Vite](https://vitejs.dev/) (como bundler)
+- [ESLint](https://eslint.org/) (para linting)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧩 Características
 
-## Expanding the ESLint configuration
+- Visualización de una lista de Pokémon por generación
+- Filtro por nombre
+- Visualización de imagen, tipo, estadísticas y habilidades
+- Indicadores de si el Pokémon es bebé o mítico
+- Cadena evolutiva con navegación visual
+- Diseño responsive y estilizado con Tailwind
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔧 Scripts disponibles
+
+```bash
+# Ejecuta la app en modo desarrollo
+npm run dev
+
+# Compila para producción
+npm run build
+
+# Vista previa de producción
+npm run preview
+
+# Linter
+npm run lint
+```
+
+## 📁 Estructura recomendada
+
+- `components/`: Componentes reutilizables como tarjetas, selector de generación, etc.
+- `graphql/queries/`: Consultas GraphQL organizadas por funcionalidad
+- `pages/`: Vistas principales (lista y detalle de Pokémon)
+- `App.jsx`: Enrutador y layout base
+
+## 📦 Instalación
+
+```bash
+npm install
+```
+
+## 👾 Vista previa
+
+La app muestra una lista de Pokémon por generación, cada uno con su sprite, tipo(s), y permite ver su evolución y detalle ampliado al hacer clic.
+
+---
+
+## 🌐 Demo en producción
+
+Este proyecto ha sido desplegado en [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform). Puedes ver el demo funcionando en:
+
+🔗 [https://pokedex-2sqx9.ondigitalocean.app/](https://pokedex-2sqx9.ondigitalocean.app/)
+
