@@ -24,16 +24,16 @@ Una Pokédex hecha en React que consume la API de [GraphQL PokeAPI](https://grap
 
 ```bash
 # Ejecuta la app en modo desarrollo
-npm run dev
+yarn dev
 
 # Compila para producción
-npm run build
+yarn build
 
 # Vista previa de producción
-npm run preview
+yarn preview
 
 # Linter
-npm run lint
+yarn lint
 ```
 
 ## 📁 Estructura recomendada
@@ -46,7 +46,7 @@ npm run lint
 ## 📦 Instalación
 
 ```bash
-npm install
+yarn install
 ```
 
 ## 👾 Vista previa

@@ -8,7 +8,7 @@ import Paginator from '../../components/Paginator';
 import FilterInput from '../../components/FilterInput';
 
 export default function PokeDex() {
-  const [generation, setGeneration] = useState('generation-i');
+  const [generation, setGeneration] = useState(localStorage.getItem('generationId') || 'generation-i');
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(10);
   const [searchName, setSearchName] = useState('');
@@ -25,6 +25,7 @@ export default function PokeDex() {
   });
 
   const handleGenChange = (e) => {
+    localStorage.setItem('generationId', e.target.value);
     setGeneration(e.target.value);
     setPage(0);
   };
@@ -38,14 +39,9 @@ export default function PokeDex() {
     <div className='container mx-auto mt-8'>
       <h2>Pokédex</h2>
 
-      <div className='flex gap-4 mt-4'>
+      <div className='flex flex-col md:flex-row gap-4 mt-4 items-stretch'>
         <GenerationSelector value={generation} onChange={handleGenChange} />
-        <Select
-          className='max-w-xs'
-          label='Seleccionar cantidad'
-          selectedKeys={[`${pageCount}`]}
-          onChange={(e) => setPageCount(parseInt(e.target.value))}
-        >
+        <Select label='Seleccionar cantidad' selectedKeys={[`${pageCount}`]} onChange={(e) => setPageCount(parseInt(e.target.value))}>
           {[10, 20, 50, 100].map((count) => (
             <SelectItem key={count}>{`${count}`}</SelectItem>
           ))}

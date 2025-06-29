@@ -13,11 +13,12 @@ export default function PokemonDetailData({ pokemonId }) {
   });
 
   const pokemonInfo = data?.pokemon?.[0];
+  const gender = data?.pokemonspecies?.[0]?.gender_rate || -1;
   const types = pokemonInfo?.pokemontypes || [];
   const imagen =
     data?.pokemon?.[0]?.pokemonsprites?.[0]?.sprites || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
 
-  const MAX_STAT = 150;
+  const MAX_STAT = 300;
   const getStatColor = (value) => {
     switch (true) {
       case value >= 200:
@@ -51,14 +52,14 @@ export default function PokemonDetailData({ pokemonId }) {
         <div className='flex justify-center md:justify-start flex-shrink-0'>
           <Image isBlurred alt={pokemonInfo?.name} className='w-40 h-40' src={imagen} />
         </div>
-        <div className='flex flex-col gap-4 justify-center text-center md:text-left'>
+        <div className='flex flex-col gap-2 justify-center text-center md:text-left'>
           <h4 className='text-sm font-semibold text-gray-700'>Medidas</h4>
           <div className='flex flex-wrap gap-2'>
             <p className='text-xs bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded-full'>Altura: {(pokemonInfo?.height * 0.1).toFixed(1)} m</p>
             <p className='text-xs bg-purple-200 text-purple-800 px-2 py-0.5 rounded-full'>Peso: {(pokemonInfo?.weight * 0.1).toFixed(1)} kg</p>
           </div>
 
-          <h4 className='text-sm font-semibold text-gray-700 mb-2'>Tipo</h4>
+          <h4 className='text-sm font-semibold text-gray-700'>Tipo</h4>
           <div className='flex flex-wrap gap-2'>
             {types.map((t) => {
               const typeNameSlug = t.type.name;
@@ -70,6 +71,17 @@ export default function PokemonDetailData({ pokemonId }) {
                 </span>
               );
             })}
+          </div>
+
+          <div className='mt-2'>
+            <h4 className='text-sm font-semibold text-gray-700 mb-2'>Género</h4>
+            {gender === -1 ? (
+              <p className='text-sm text-gray-600'>Sin género</p>
+            ) : (
+              <p className='text-sm text-gray-600'>
+                ♂ {((8 - gender) * 12.5).toFixed(1)}% &nbsp; ♀ {(gender * 12.5).toFixed(1)}%
+              </p>
+            )}
           </div>
         </div>
       </div>

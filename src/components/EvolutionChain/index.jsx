@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { capitalize } from '../../helpers/common-functions';
 import { GET_EVOLUTION_CHAIN } from '../../graphql/queries/getEvolutionChain';
+import { Image } from '@heroui/react';
 
 export default function EvolutionChain({ pokemonId }) {
   const navigation = useNavigate();
@@ -35,7 +36,7 @@ export default function EvolutionChain({ pokemonId }) {
               } rounded-lg shadow-md px-4 pt-16 pb-6 text-center w-40 cursor-pointer mb-4`}
             >
               <div className='absolute -top-8 left-1/2 transform -translate-x-1/2 z-0'>
-                <img src={pokemonImage(pokemon)} alt={pokemon.name} className='w-20 h-20' />
+                <Image isBlurred src={pokemonImage(pokemon)} alt={pokemon.name} className='w-20 h-20' />
               </div>
               <h3 className='text-md font-semibold mb-2'>{capitalize(pokemon.name)}</h3>
               <div className='flex items-center justify-center mt-2 gap-2'>

@@ -16,7 +16,7 @@ export const GET_EVOLUTION_CHAIN = gql`
         pokemons {
           pokemonsprites {
             id
-            sprites(path: "other.dream_world.front_default")
+            sprites(path: "other.home.front_default")
           }
         }
       }

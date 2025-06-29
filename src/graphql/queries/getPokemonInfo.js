@@ -16,7 +16,7 @@ export const GET_POKEMON_INFO = gql`
       }
       pokemonsprites {
         id
-        sprites(path: "other.dream_world.front_default")
+        sprites(path: "other.home.front_default")
       }
       pokemontypes {
         type {
@@ -36,6 +36,9 @@ export const GET_POKEMON_INFO = gql`
           }
         }
       }
+    }
+    pokemonspecies(where: { id: { _eq: $pokemonId } }) {
+      gender_rate
     }
   }
 `;

@@ -21,7 +21,7 @@ export const GET_POKEMONS_BY_GENERATION = gql`
         }
         pokemonsprites {
           id
-          sprites(path: "other.dream_world.front_default")
+          sprites(path: "other.home.front_default")
         }
       }
     }
