@@ -6,7 +6,7 @@ export const GET_POKEMONS_BY_GENERATION = gql`
       where: { generation: { name: { _eq: $generationName } }, name: { _ilike: $nameFilter } }
       limit: $limit
       offset: $offset
-      order_by: { id: asc }
+      order_by: { name: asc }
     ) {
       id
       name
@@ -14,7 +14,14 @@ export const GET_POKEMONS_BY_GENERATION = gql`
         pokemontypes {
           type {
             name
+            typenames(where: { language_id: { _eq: 7 } }) {
+              name
+            }
           }
+        }
+        pokemonsprites {
+          id
+          sprites(path: "other.dream_world.front_default")
         }
       }
     }

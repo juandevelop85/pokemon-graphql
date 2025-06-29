@@ -1,6 +1,6 @@
 import { Select, SelectItem } from '@heroui/react';
 import { useQuery } from '@apollo/client';
-import { GET_GENERATIONS } from '../../src/graphql/queries/getGenerations';
+import { GET_GENERATIONS } from '../../graphql/queries/getGenerations';
 
 export default function GenerationSelector({ value, onChange }) {
   const { data, loading, error } = useQuery(GET_GENERATIONS);

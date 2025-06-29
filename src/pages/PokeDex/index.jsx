@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_POKEMONS_BY_GENERATION } from '../../src/graphql/queries/getPokemonsByGeneration';
-import { Select, SelectItem, Spinner, User } from '@heroui/react';
-import GenerationSelector from '../GenerationSelector';
-import PokemonCard from '../PokemonCard';
-import Paginator from '../Paginator';
-import FilterInput from '../FilterInput';
+import { GET_POKEMONS_BY_GENERATION } from '../../graphql/queries/getPokemonsByGeneration';
+import { Select, SelectItem, Spinner } from '@heroui/react';
+import GenerationSelector from '../../components/GenerationSelector';
+import PokemonCard from '../../components/PokemonCard';
+import Paginator from '../../components/Paginator';
+import FilterInput from '../../components/FilterInput';
 
-export default function PokemonListWithGeneration() {
+export default function PokeDex() {
   const [generation, setGeneration] = useState('generation-i');
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(10);
@@ -36,7 +36,7 @@ export default function PokemonListWithGeneration() {
 
   return (
     <div className='container mx-auto mt-8'>
-      <h2>Pokémon por generación</h2>
+      <h2>Pokédex</h2>
 
       <div className='flex gap-4 mt-4'>
         <GenerationSelector value={generation} onChange={handleGenChange} />

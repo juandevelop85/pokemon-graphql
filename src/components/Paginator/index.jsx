@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { Pagination } from '@heroui/react';
-import { GET_GENERATION_AGGREGATE } from '../../src/graphql/queries/getGenerationAggregate';
+import { GET_GENERATION_AGGREGATE } from '../../graphql/queries/getGenerationAggregate';
 
 export default function Paginator({ page, setPage, generation, pageCount, searchName }) {
   const initialPage = page + 1;
