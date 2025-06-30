@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
+import { Image } from '@heroui/react';
 import { useNavigate } from 'react-router';
 import { capitalize } from '../../helpers/common-functions';
 import { GET_EVOLUTION_CHAIN } from '../../graphql/queries/getEvolutionChain';
-import { Image } from '@heroui/react';
+
+EvolutionChain.propTypes = {
+  pokemonId: PropTypes.number.isRequired,
+};
 
 export default function EvolutionChain({ pokemonId }) {
   const navigation = useNavigate();

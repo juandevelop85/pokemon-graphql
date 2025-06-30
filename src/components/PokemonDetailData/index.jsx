@@ -1,9 +1,15 @@
-import { GET_POKEMON_INFO } from '../../graphql/queries/getPokemonInfo';
+import { Image, Spinner } from '@heroui/react';
+import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
+import { GET_POKEMON_INFO } from '../../graphql/queries/getPokemonInfo';
 import { typeColorMap } from '../../helpers/colorTypes';
 import { capitalize } from '../../helpers/common-functions';
 import EvolutionChain from '../EvolutionChain';
-import { Image, Spinner } from '@heroui/react';
+
+
+PokemonDetailData.propTypes = {
+  pokemonId: PropTypes.number.isRequired,
+};
 
 export default function PokemonDetailData({ pokemonId }) {
   const { data, loading } = useQuery(GET_POKEMON_INFO, {

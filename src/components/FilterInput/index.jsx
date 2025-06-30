@@ -1,4 +1,5 @@
 import { Input } from '@heroui/react';
+import PropTypes from 'prop-types';
 
 export const SearchIcon = (props) => {
   return (
@@ -13,6 +14,10 @@ export const SearchIcon = (props) => {
       <path d='M22 22L20 20' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' />
     </svg>
   );
+};
+
+FilterInput.propTypes = {
+  setSearchName: PropTypes.string.isRequired,
 };
 
 export default function FilterInput({ setSearchName }) {

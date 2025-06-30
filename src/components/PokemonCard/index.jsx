@@ -1,7 +1,12 @@
 import { Image } from '@heroui/react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router';
 import { capitalize } from '../../helpers/common-functions';
 import { typeColorMap } from '../../helpers/colorTypes';
-import { useNavigate } from 'react-router';
+
+PokemonCard.propTypes = {
+  pokemon: PropTypes.object.isRequired,
+};
 
 export default function PokemonCard({ pokemon }) {
   const navigation = useNavigate();

@@ -1,6 +1,12 @@
 import { useQuery } from '@apollo/client';
-import { GET_GENERATIONS } from '../../graphql/queries/getGenerations';
+import PropTypes from 'prop-types';
 import { Select, SelectItem } from '@heroui/react';
+import { GET_GENERATIONS } from '../../graphql/queries/getGenerations';
+
+GenerationSelector.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default function GenerationSelector({ value, onChange }) {
   const { data, loading, error } = useQuery(GET_GENERATIONS);
