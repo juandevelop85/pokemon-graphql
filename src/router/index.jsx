@@ -17,7 +17,7 @@ const Router = () => {
     {
       page: PokemonDetail,
       exact: true,
-      path: '/detail/:pokemon_id',
+      path: '/pokemon/:pokemon_id',
       layout: PrincipalLayout,
     },
   ];

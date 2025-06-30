@@ -5,14 +5,17 @@ import { GET_POKEMON_INFO } from '../../graphql/queries/getPokemonInfo';
 import { typeColorMap } from '../../helpers/colorTypes';
 import { capitalize } from '../../helpers/common-functions';
 import EvolutionChain from '../EvolutionChain';
-
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 PokemonDetailData.propTypes = {
   pokemonId: PropTypes.number.isRequired,
 };
 
 export default function PokemonDetailData({ pokemonId }) {
-  const { data, loading } = useQuery(GET_POKEMON_INFO, {
+  const navigate = useNavigate();
+
+  const { data, loading, error } = useQuery(GET_POKEMON_INFO, {
     variables: { pokemonId },
     skip: !pokemonId,
     fetchPolicy: 'no-cache',
@@ -23,6 +26,12 @@ export default function PokemonDetailData({ pokemonId }) {
   const types = pokemonInfo?.pokemontypes || [];
   const imagen =
     data?.pokemon?.[0]?.pokemonsprites?.[0]?.sprites || `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+
+  useEffect(() => {
+    if (!loading && !error && (!pokemonInfo || pokemonInfo.length === 0)) {
+      navigate('/404', { replace: true });
+    }
+  }, [pokemonInfo, loading, error, navigate]);
 
   const MAX_STAT = 300;
   const getStatColor = (value) => {
