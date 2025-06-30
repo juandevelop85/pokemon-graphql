@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
 import { capitalize } from '../../helpers/common-functions';
 import { typeColorMap } from '../../helpers/colorTypes';
+import { detailRoute } from '../../helpers/routes';
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
@@ -18,7 +19,7 @@ export default function PokemonCard({ pokemon }) {
 
   return (
     <div
-      onClick={() => navigation(`/detail/${pokemon.id}/`)}
+      onClick={() => navigation(detailRoute(pokemon.id))}
       className='bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg hover:bg-gray-100 transform transition-transform duration-300 hover:scale-105'
     >
       <div className='justify-center flex'>

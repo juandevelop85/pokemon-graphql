@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { homeRoute } from '../../helpers/routes';
 
 export default function NotFound() {
   return (
@@ -10,7 +11,7 @@ export default function NotFound() {
       />
       <h1 className='text-4xl font-bold text-red-600 mb-2'>404</h1>
       <p className='text-lg font-semibold text-gray-700 mb-4'>¡Oh no! algo no hemos encontrado…</p>
-      <Link to='/' className='px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full transition'>
+      <Link to={homeRoute} className='px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full transition'>
         Volver al inicio
       </Link>
     </div>

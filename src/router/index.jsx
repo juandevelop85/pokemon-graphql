@@ -5,19 +5,20 @@ import PokeDex from '../pages/PokeDex';
 import PokemonDetail from '../pages/PokemonDetail';
 import PrincipalLayout from '../components/Layout/PrincipalLayout';
 import NotFound from '../pages/NotFound';
+import { detailRoute, homeRoute } from '../helpers/routes';
 
 const Router = () => {
   const routes = [
     {
       page: PokeDex,
       exact: true,
-      path: '/',
+      path: homeRoute,
       layout: PrincipalLayout,
     },
     {
       page: PokemonDetail,
       exact: true,
-      path: '/pokemon/:pokemon_id',
+      path: detailRoute(),
       layout: PrincipalLayout,
     },
   ];

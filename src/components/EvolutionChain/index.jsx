@@ -5,6 +5,7 @@ import { Image } from '@heroui/react';
 import { useNavigate } from 'react-router';
 import { capitalize } from '../../helpers/common-functions';
 import { GET_EVOLUTION_CHAIN } from '../../graphql/queries/getEvolutionChain';
+import { detailRoute } from '../../helpers/routes';
 
 EvolutionChain.propTypes = {
   pokemonId: PropTypes.number.isRequired,
@@ -35,7 +36,7 @@ export default function EvolutionChain({ pokemonId }) {
         {sortedSpecies.map((pokemon, index) => (
           <React.Fragment key={pokemon.id}>
             <div
-              onClick={() => navigation(`/detail/${pokemon.id}/`)}
+              onClick={() => navigation(detailRoute(pokemon.id))}
               className={`relative z-10 mt-6 ${
                 pokemonId === pokemon.id ? 'bg-primary-100' : 'bg-white'
               } rounded-lg shadow-md px-4 pt-16 pb-6 text-center w-40 cursor-pointer mb-4`}

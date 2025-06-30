@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Image } from '@heroui/react';
 import PropTypes from 'prop-types';
 import pokeballIcon from '../../assets/pokeball-colored.svg'; // asegúrate de tener esta imagen
+import { homeRoute } from '../../helpers/routes';
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -31,7 +32,7 @@ export default function PrincipalLayout({ children }) {
             <h1 className='text-xl font-bold tracking-wide'>Pokédex GraphQL</h1>
           </div>
           <nav>
-            <Link to='/' className='text-white hover:underline text-sm'>
+            <Link to={homeRoute} className='text-white hover:underline text-sm'>
               Inicio
             </Link>
           </nav>
