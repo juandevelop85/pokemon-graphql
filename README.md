@@ -6,6 +6,7 @@ Una Pokédex hecha en React que consume la API de [GraphQL PokeAPI](https://grap
 - [React Router v7](https://reactrouter.com/)
 - [Apollo Client](https://www.apollographql.com/docs/react/)
 - [GraphQL](https://graphql.org/)
+- [Heroui](https://www.heroui.com/)
 - [Tailwind CSS v3](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/) (para animaciones)
 - [Vite](https://vitejs.dev/) (como bundler)
@@ -67,7 +68,7 @@ pokemon-graphql/
 │   │   └── queries /              # Todas las consultas GraphQL organizadas
 │
 │   ├── lib/                       # Carpeta para librerias
-│   │   ├── apolloClient.js        # Configuración del Apollo Client
+│   │   └── apolloClient.js        # Configuración del Apollo Client
 │
 │   ├── pages/                     # Páginas principales del sitio
 │   │   ├── Home.jsx               # Página principal con listado de Pokémon
