@@ -38,7 +38,7 @@ export default function PokeDex() {
 
   return (
     <div className='container mx-auto mt-8'>
-      <h2>Pokédex</h2>
+      <h1 className='text-3xl font-bold text-foreground mb-4'>Pokédex</h1>
 
       <div className='flex flex-col md:flex-row gap-4 mt-4 items-stretch'>
         <GenerationSelector value={generation} onChange={handleGenChange} />
@@ -60,11 +60,7 @@ export default function PokeDex() {
         <>
           {pokeData?.pokemonspecies?.length === 0 && (
             <div className='flex flex-col w-full justify-center items-center mt-10'>
-              <Image
-                src={pokeballIcon}
-                alt='Pikachu'
-                className='w-16 h-16 mb-4 animate-bounce'
-              />
+              <Image src={pokeballIcon} alt='Pikachu' className='w-16 h-16 mb-4 animate-bounce' />
               <p className='text-sm text-gray-500 mb-6'>Pokemon no encuentrado</p>
               <p className='text-sm text-gray-500 mb-6'>Tal vez es de otra generaición o simplemente no existe.</p>
             </div>
