@@ -64,8 +64,10 @@ pokemon-graphql/
 │   │       └── index.jsx
 │
 │   ├── graphql/                   # Configuración de Apollo y queries GraphQL
-│   │   ├── client.js              # Configuración del Apollo Client
-│   │   └── queries.js             # Todas las consultas GraphQL organizadas
+│   │   └── queries /              # Todas las consultas GraphQL organizadas
+│
+│   ├── lib/                       # Carpeta para librerias
+│   │   ├── apolloClient.js        # Configuración del Apollo Client
 │
 │   ├── pages/                     # Páginas principales del sitio
 │   │   ├── Home.jsx               # Página principal con listado de Pokémon
