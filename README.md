@@ -38,6 +38,7 @@ yarn lint
 
 ## 📁 Estructura utilizada
 
+```
 pokemon-graphql/
 ├── public/                         # Archivos públicos accesibles directamente (favicon, SVGs, etc.)
 │   ├── pokeball-colored.svg       # Ícono SVG de la Pokébola, usado como favicon o logo
@@ -83,6 +84,7 @@ pokemon-graphql/
 ├── vite.config.js               # Configuración del bundler Vite
 ├── README.md                    # Documentación del proyecto
 └── package.json                 # Dependencias, scripts y metadatos del proyecto
+```
 
 ## 📦 Instalación
 
