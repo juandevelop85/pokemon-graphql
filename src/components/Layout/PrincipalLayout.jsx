@@ -2,13 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pokeballIcon from '../../assets/pokeball-colored.svg'; // asegúrate de tener esta imagen
+import { Image } from '@heroui/react';
 
 export default function PrincipalLayout({ children }) {
   return (
     <div className='min-h-screen bg-gradient-to-b from-primary-100 to-secondary-100 flex flex-col'>
       <header className='bg-primary-500 text-white px-6 py-4 shadow-md flex items-center justify-between'>
         <div className='flex items-center gap-2'>
-          <img src={pokeballIcon} alt='Pokeball' className='w-8 h-8' />
+          <Image isBlurred src={pokeballIcon} alt='Pokeball' className='w-8 h-8' />
           <h1 className='text-xl font-bold tracking-wide'>Pokédex GraphQL</h1>
         </div>
         <nav>

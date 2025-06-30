@@ -1,13 +1,11 @@
 import { Image } from '@heroui/react';
 import { capitalize } from '../../helpers/common-functions';
 import { typeColorMap } from '../../helpers/colorTypes';
-import DrawerDetail from '../DrawerDetail';
 import { useNavigate } from 'react-router';
 
 export default function PokemonCard({ pokemon }) {
   const navigation = useNavigate();
-  // const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  // {isOpen && <DrawerDetail isOpen={isOpen} onOpenChange={onOpenChange} pokemon={pokemon} />}
+
   const types = pokemon?.pokemons?.[0]?.pokemontypes || [];
   const imagen =
     pokemon?.pokemons?.[0]?.pokemonsprites?.[0]?.sprites ||
@@ -16,7 +14,7 @@ export default function PokemonCard({ pokemon }) {
   return (
     <div
       onClick={() => navigation(`/detail/${pokemon.id}/`)}
-      className='bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg hover:bg-gray-100'
+      className='bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg hover:bg-gray-100 transform transition-transform duration-300 hover:scale-105'
     >
       <div className='justify-center flex'>
         <Image isBlurred alt={pokemon.name} className='w-30 h-30' src={imagen} />

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMONS_BY_GENERATION } from '../../graphql/queries/getPokemonsByGeneration';
-import { Select, SelectItem, Spinner } from '@heroui/react';
+import { Image, Select, SelectItem, Spinner } from '@heroui/react';
 import GenerationSelector from '../../components/GenerationSelector';
 import PokemonCard from '../../components/PokemonCard';
 import Paginator from '../../components/Paginator';
 import FilterInput from '../../components/FilterInput';
+import pokeballIcon from '../../assets/pokeball-colored.svg';
 
 export default function PokeDex() {
   const [generation, setGeneration] = useState(localStorage.getItem('generationId') || 'generation-i');
@@ -58,9 +59,17 @@ export default function PokeDex() {
       ) : (
         <>
           {pokeData?.pokemonspecies?.length === 0 && (
-            <p className='text-center text-foreground mt-10'>No se encontraron Pokémones con los criterios de búsqueda.</p>
+            <div className='flex flex-col w-full justify-center items-center mt-10'>
+              <Image
+                src={pokeballIcon}
+                alt='Pikachu'
+                className='w-16 h-16 mb-4 animate-bounce'
+              />
+              <p className='text-sm text-gray-500 mb-6'>Pokemon no encuentrado</p>
+              <p className='text-sm text-gray-500 mb-6'>Tal vez es de otra generaición o simplemente no existe.</p>
+            </div>
           )}
-          <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8 w-full'>
+          <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 mt-8 w-full'>
             {pokeData?.pokemonspecies?.map((pokemon) => (
               <li key={pokemon.id} className='mt-8'>
                 <PokemonCard pokemon={pokemon} />
