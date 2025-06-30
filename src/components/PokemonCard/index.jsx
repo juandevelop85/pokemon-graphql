@@ -19,7 +19,7 @@ export default function PokemonCard({ pokemon }) {
       className='bg-white rounded-lg shadow-md p-6 text-center cursor-pointer hover:shadow-lg hover:bg-gray-100'
     >
       <div className='justify-center flex'>
-        <Image isBlurred alt={pokemon.name} className='w-20 h-20' src={imagen} />
+        <Image isBlurred alt={pokemon.name} className='w-30 h-30' src={imagen} />
       </div>
 
       <h3 className='text-lg font-bold mb-2'>{capitalize(pokemon.name)}</h3>

@@ -50,7 +50,7 @@ export default function PokemonDetailData({ pokemonId }) {
     <div className='bg-white rounded-lg p-6 max-w-4xl mx-auto'>
       <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
         <div className='flex justify-center md:justify-start flex-shrink-0'>
-          <Image isBlurred alt={pokemonInfo?.name} className='w-40 h-40' src={imagen} />
+          <Image isBlurred alt={pokemonInfo?.name} className='w-60 h-60' src={imagen} />
         </div>
         <div className='flex flex-col gap-2 justify-center text-center md:text-left'>
           <h4 className='text-sm font-semibold text-gray-700'>Medidas</h4>
