@@ -1,4 +1,4 @@
-import { Image, Spinner } from '@heroui/react';
+import { Button, Image, Spinner } from '@heroui/react';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { GET_POKEMON_INFO } from '../../graphql/queries/getPokemonInfo';
@@ -61,8 +61,22 @@ export default function PokemonDetailData({ pokemonId }) {
     );
   }
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className='bg-white rounded-lg p-6 max-w-4xl mx-auto'>
+      <div className='flex flex-col md:flex-row gap-6 items-center mb-6'>
+        <Button variant='ghost' onPress={handleBack} className='flex items-center gap-2'>
+          <i className='ri-arrow-left-line text-lg'></i>
+          Volver
+        </Button>
+        <h1 className='text-3xl font-semibold text-gray-700'>
+          {capitalize(pokemonInfo?.name)}
+        </h1>
+      </div>
+
       <div className='flex flex-col md:flex-row gap-6 items-center justify-center'>
         <div className='flex justify-center md:justify-start flex-shrink-0'>
           <Image isBlurred alt={pokemonInfo?.name} className='w-60 h-60' src={imagen} />
